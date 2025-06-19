@@ -1,14 +1,16 @@
 
 
+using UnityEngine;
+
 namespace Script.GameMode
 {
     public class GameModeServices
     {
         public GameModeController GameModeController { get; private set; }
         
-        public GameModeServices(GameModeView gameModeViewPrefab)
+        public GameModeServices(GameModeView gameModeView, Transform canvasTransform)
         {
-            GameModeController = new GameModeController(gameModeViewPrefab);
+            GameModeController = new GameModeController(gameModeView,  canvasTransform);
         }
 
 

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f77cf991aa04e07bffa89671a7f394a, type: 3}
+  m_Name: EndlessModeData
+  m_EditorClassIdentifier: 
+  gridSize: {x: 4, y: 4}
+  tilePrefab: {fileID: 7453409392898674539, guid: 548031849138e4c8a8e4cfb1a98771cc, type: 3}

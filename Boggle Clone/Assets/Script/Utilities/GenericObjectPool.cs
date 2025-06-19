@@ -3,45 +3,43 @@ using System.Collections.Generic;
 
 namespace ObjectPool
 {
-    public class GenericObjectPool<T> where T : class
+    public abstract class GenericObjectPool<T> where T : class
     {
         public List<PooledItem> pooledItems = new();
 
-        public virtual T GetItem<U>() where U : T
+        public virtual T GetItem() 
         {
-            if (pooledItems.Count > 0)
+            foreach (var item in pooledItems)
             {
-                PooledItem item = pooledItems.Find(item => !item.isUsed && item.Item is U);
-                if (item != null)
+                if (!item.isUsed)
                 {
                     item.isUsed = true;
+                    OnGet(item.Item);
                     return item.Item;
                 }
             }
-            return CreateNewPooledItem<U>();
-        }
-
-        private T CreateNewPooledItem<U>() where U : T
-        {
-            PooledItem newItem = new PooledItem();
-            newItem.Item = CreateItem<U>();
-            newItem.isUsed = true;
-            pooledItems.Add(newItem);
-            return newItem.Item;
-        }
-
-        protected virtual T CreateItem<U>() where U : T
-        {
-            throw new NotImplementedException("CreateItem() method not implemented in derived class");
+            
+            var newItem = CreateItem();
+            pooledItems.Add(new PooledItem { Item = newItem, isUsed = true });
+            OnGet(newItem);
+            return newItem;
         }
 
         public virtual void ReturnItem(T item)
         {
-            PooledItem pooledItem = pooledItems.Find(i => i.Item.Equals(item));
-
+            var pooledItem = pooledItems.Find(i => ReferenceEquals(i.Item, item));
             if (pooledItem != null)
+            {
                 pooledItem.isUsed = false;
+                OnRelease(item);
+            }
         }
+
+        protected abstract T CreateItem();
+        
+        protected virtual void OnGet(T item){}
+
+        protected virtual void OnRelease(T item) { }
 
         public class PooledItem
         {
