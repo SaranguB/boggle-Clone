@@ -1,9 +1,9 @@
 using GameMode.EndlessMode;
 using GameMode.Tiles;
-using ObjectPool;
 using UnityEngine;
+using Utilities;
 
-namespace Wepons.Tile
+namespace Tile
 {
     public class TilePool : GenericObjectPool<TileViewController>
     {
@@ -30,5 +30,6 @@ namespace Wepons.Tile
         {
             item.gameObject.SetActive(false);
         }
+        
     }
 }

@@ -1,6 +1,6 @@
 using Script.GameMode.EndlessMode;
+using Tile;
 using UnityEngine;
-using Wepons.Tile;
 
 namespace Script.GameMode
 {

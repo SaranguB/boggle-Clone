@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ObjectPool
+namespace Utilities
 {
     public abstract class GenericObjectPool<T> where T : class
     {

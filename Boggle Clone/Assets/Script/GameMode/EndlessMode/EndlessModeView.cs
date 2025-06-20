@@ -4,7 +4,7 @@ using GameMode.Tiles;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
-using Wepons.Tile;
+using Tile;
 
 namespace Script.GameMode.EndlessMode
 {
