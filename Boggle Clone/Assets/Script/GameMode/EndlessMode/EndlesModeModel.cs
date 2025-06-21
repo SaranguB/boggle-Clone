@@ -1,22 +1,19 @@
 using System.Collections.Generic;
+using GameMode.BaseMode;
 using GameMode.Tiles;
 using Tile;
+using UnityEngine;
 
 namespace GameMode.EndlessMode
 {
-    public class EndlesModeModel
+    public class EndlesModeModel : BaseModeModel
     {
         public EndlessModeSo endlessModeData { get; private set; }
+        public override Vector2 GridSize => endlessModeData.gridSize;
         
-        public int gridSize;
-        public List<TileViewController> tileList = new();
-        public TilePool tilePool;
-        public HashSet<string> wordSets = new();
-        public char[,] letterGrid;
-        
-        public EndlesModeModel(EndlessModeSo endlessModeData)
+        public EndlesModeModel(BaseModeSo endlessModeData)
         {
-           this.endlessModeData = endlessModeData;
+           this.endlessModeData = (EndlessModeSo)endlessModeData;
         }
     }
 }

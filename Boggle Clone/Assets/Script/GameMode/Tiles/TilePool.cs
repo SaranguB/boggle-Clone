@@ -1,3 +1,4 @@
+using GameMode.BaseMode;
 using GameMode.EndlessMode;
 using GameMode.Tiles;
 using UnityEngine;
@@ -7,18 +8,18 @@ namespace Tile
 {
     public class TilePool : GenericObjectPool<TileViewController>
     {
-        private EndlessModeSo endlessModeData;
+        private BaseModeSo modeData;
         private Transform parentTransform;
         
-        public TilePool(EndlessModeSo endlessModeData, Transform  parentTransform = null)
+        public TilePool(BaseModeSo modeData, Transform  parentTransform = null)
         {
-            this.endlessModeData = endlessModeData;
+            this.modeData = modeData;
             this.parentTransform = parentTransform;
         }
         
         protected override TileViewController CreateItem()
         {
-            return Object.Instantiate(endlessModeData.tilePrefab, parentTransform);
+            return Object.Instantiate(modeData.tilePrefab, parentTransform);
         }
 
         protected override void OnGet(TileViewController item)
