@@ -11,7 +11,6 @@ namespace Script.GameMode.EndlessMode
 {
     public class EndlessModeView : BaseModeView
     {
-      
         
         private EndlessModeController endlessModeController;
 

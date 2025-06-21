@@ -31,7 +31,19 @@ namespace Script.GameMode.EndlessMode
             this.endlessModeView.SetController(this);
         }
 
+        public override void OnTileDragStart(TileViewController tileViewController)
+        {
+            base.OnTileDragStart(tileViewController);
+        }
 
+        public override void OnTileDraggedOver(TileViewController tile)
+        {
+            base.OnTileDraggedOver(tile);
+        }
 
+        public override void OnTileDragEnd(TileViewController tile)
+        {
+            base.OnTileDragEnd(tile);
+        }
     }
 }

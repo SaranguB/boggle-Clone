@@ -297,6 +297,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301002a8f4184d7f9a1ad9a4d4ce67e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &444519837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8917766530484095703, guid: 881c094929cdde24fa465badd885b142, type: 3}
+  m_PrefabInstance: {fileID: 6854894480388523131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &504247515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8044907293096946697, guid: 881c094929cdde24fa465badd885b142, type: 3}
+  m_PrefabInstance: {fileID: 6854894480388523131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,22 +456,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &723624916 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3965572504777835235, guid: 881c094929cdde24fa465badd885b142, type: 3}
-  m_PrefabInstance: {fileID: 6854894480388523131}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 665f7c6c283b4a3b900deed8f087cb6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &1125970376 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8349599266128100576, guid: 881c094929cdde24fa465badd885b142, type: 3}
-  m_PrefabInstance: {fileID: 6854894480388523131}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328618247
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +535,25 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!1 &1353182276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3811085270938185342, guid: 881c094929cdde24fa465badd885b142, type: 3}
+  m_PrefabInstance: {fileID: 6854894480388523131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353182278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353182276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9933126652f24ffc84583fbcffad5e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  averageScoreText: {fileID: 504247515}
+  totalScoreText: {fileID: 444519837}
 --- !u!224 &3134900203727122957 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1390822911844102120, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
@@ -639,38 +664,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 419964022}
     m_Modifications:
-    - target: {fileID: 264259436842489133, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: <endlessModeView>k__BackingField
-      value: 
-      objectReference: {fileID: 723624916}
-    - target: {fileID: 264259436842489133, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: <endlessModeViewPrefab>k__BackingField
-      value: 
-      objectReference: {fileID: 723624916}
-    - target: {fileID: 1896765695201071918, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: m_Spacing.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896765695201071918, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: m_Spacing.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896765695201071918, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: m_CellSize.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896765695201071918, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: m_CellSize.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896765695201071918, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: m_ChildAlignment
-      value: 4
+    - target: {fileID: 3735010264363972064, guid: 881c094929cdde24fa465badd885b142, type: 3}
+      propertyPath: m_Name
+      value: AverageScoreText
       objectReference: {fileID: 0}
     - target: {fileID: 3965572504777835235, guid: 881c094929cdde24fa465badd885b142, type: 3}
-      propertyPath: <tileGroupTransform>k__BackingField
+      propertyPath: <TileSo>k__BackingField
       value: 
-      objectReference: {fileID: 1125970376}
+      objectReference: {fileID: 11400000, guid: 36a7b7f73ea369e4283591778a281a74, type: 2}
+    - target: {fileID: 3965572504777835235, guid: 881c094929cdde24fa465badd885b142, type: 3}
+      propertyPath: <ScoreUIController>k__BackingField
+      value: 
+      objectReference: {fileID: 1353182278}
+    - target: {fileID: 4691567736684827601, guid: 881c094929cdde24fa465badd885b142, type: 3}
+      propertyPath: m_Name
+      value: TotalScoreText
+      objectReference: {fileID: 0}
     - target: {fileID: 5759732757526448588, guid: 881c094929cdde24fa465badd885b142, type: 3}
       propertyPath: m_Name
       value: GameMode
@@ -770,7 +779,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3811085270938185342, guid: 881c094929cdde24fa465badd885b142, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1353182278}
   m_SourcePrefab: {fileID: 100100000, guid: 881c094929cdde24fa465badd885b142, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
