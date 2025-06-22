@@ -670,6 +670,22 @@ PrefabInstance:
       propertyPath: levelButtonPrefab
       value: 
       objectReference: {fileID: 2315576520403613395, guid: 963abc9a14215824d9694c719d6c1303, type: 3}
+    - target: {fileID: 5973299655638505812, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
+      propertyPath: m_Spacing.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973299655638505812, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
+      propertyPath: m_StartAxis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973299655638505812, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
+      propertyPath: m_Constraint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973299655638505812, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6673085971014259651, guid: 402fe2ac0f4854b45be6c1d2f08c560d, type: 3}
       propertyPath: m_Name
       value: MainMenuUI

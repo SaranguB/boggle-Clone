@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f77cf991aa04e07bffa89671a7f394a, type: 3}
   m_Name: EndlessModeData
   m_EditorClassIdentifier: 
-  <gridSize>k__BackingField: {x: 4, y: 4}
+  gridSize: {x: 4, y: 4}
   <tilePrefab>k__BackingField: {fileID: 7453409392898674539, guid: 548031849138e4c8a8e4cfb1a98771cc, type: 3}

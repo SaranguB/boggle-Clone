@@ -12,6 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66daf22020834133ba59581f3346daaa, type: 3}
   m_Name: LevelModeData
   m_EditorClassIdentifier: 
-  <gridSize>k__BackingField: {x: 0, y: 0}
-  <tilePrefab>k__BackingField: {fileID: 0}
-  numberOfLevels: 5
+  gridSize: {x: 4, y: 4}
+  <tilePrefab>k__BackingField: {fileID: 7453409392898674539, guid: 548031849138e4c8a8e4cfb1a98771cc, type: 3}
+  numberOfLevels: 10
+  selectedLevel: 2
+  bugCount: 0
+  wordCount: 4
+  timeSec: 0
+  totalScore: 0
+  gridData:
+  - tileType: 0
+    letter: B
+  - tileType: 0
+    letter: R
+  - tileType: 0
+    letter: E
+  - tileType: 0
+    letter: D
+  - tileType: 0
+    letter: N
+  - tileType: 0
+    letter: L
+  - tileType: 0
+    letter: S
+  - tileType: 0
+    letter: M
+  - tileType: 0
+    letter: O
+  - tileType: 0
+    letter: I
+  - tileType: 0
+    letter: A
+  - tileType: 0
+    letter: T
+  - tileType: 0
+    letter: C
+  - tileType: 0
+    letter: E
+  - tileType: 0
+    letter: K
+  - tileType: 0
+    letter: S
