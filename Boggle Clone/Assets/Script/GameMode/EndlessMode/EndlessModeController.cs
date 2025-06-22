@@ -45,5 +45,71 @@ namespace Script.GameMode.EndlessMode
         {
             base.OnTileDragEnd(tile);
         }
+
+        protected override void OnWordValidated(List<TileViewController> usedTiles)
+        {
+            base.OnWordValidated(usedTiles);
+            RefillGridAfterWords(usedTiles);
+        }
+
+        private void RefillGridAfterWords(List<TileViewController> usedTiles)
+        {
+            int rows = (int)baseModeModel.GridSize.y;
+            int cols = (int)baseModeModel.GridSize.x;
+    
+            TileViewController[,] grid = GetTileGrid();
+            
+            foreach (var tile in usedTiles)
+            {
+                Vector2Int pos = tile.tileModel.gridPosition;
+                ReturnToPool(tile);
+                grid[pos.x, pos.y] = null;
+            }
+            
+            ShiftTilesDownward(cols, rows, grid);
+        }
+
+        private void ShiftTilesDownward(int cols, int rows, TileViewController[,] grid)
+        {
+            for (int x = 0; x < cols; x++)
+            {
+                int writeRow = rows - 1;
+
+                for (int y = rows - 1; y >= 0; y--)
+                {
+                    if (grid[x, y] != null)
+                    {
+                        if (y != writeRow)
+                        {
+                            var tile = grid[x, y];
+                            grid[x, writeRow] = tile;
+                            grid[x, y] = null;
+
+                            tile.tileModel.gridPosition = new Vector2Int(x, writeRow);
+                            tile.transform.SetSiblingIndex(writeRow * cols + x);
+                        }
+                        writeRow--;
+                    }
+                }
+                
+                InitializeNewTile(writeRow, x, cols, grid);
+            }
+        }
+
+        private void InitializeNewTile(int writeRow, int x, int cols, TileViewController[,] grid)
+        {
+            for (int y = writeRow; y >= 0; y--)
+            {
+                TileViewController newTile = baseModeModel.tilePool.GetItem();
+                char letter = GetRandomLetter();
+                newTile.Initialize(this, y, x, letter, baseModeView.TileSo, baseModeModel.letterScores[letter]);
+                newTile.transform.SetParent(baseModeView.TileGroupTransform, false);
+                newTile.tileModel.gridPosition = new Vector2Int(x, y);
+                newTile.transform.SetSiblingIndex(y * cols + x); 
+                baseModeModel.tileList.Add(newTile);
+
+                grid[x, y] = newTile;
+            }
+        }
     }
 }

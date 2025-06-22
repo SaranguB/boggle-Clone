@@ -10,7 +10,8 @@ namespace UI.MainMenuUI
         [SerializeField] private Button PlayButton;
         [SerializeField] private Button QuitButton;
         [SerializeField] private CanvasGroup gameModeButtonCanvas;
-
+        [SerializeField] private CanvasGroup mainMenuCanvas;
+        
         private void Start()
         {
             PlayButton.onClick.AddListener(OnPlayButtonClicked);
@@ -19,7 +20,9 @@ namespace UI.MainMenuUI
 
         private void OnPlayButtonClicked()
         {
+            CanvasGroupExtension.Hide(mainMenuCanvas);
             CanvasGroupExtension.Show(gameModeButtonCanvas);
+            
         }
 
         private void OnquitButtonClicked()

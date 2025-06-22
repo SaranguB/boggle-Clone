@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace GameMode.Tiles
 {
-    [CreateAssetMenu(fileName = "TileSo", menuName = "ScriptableObjects/GameMode/EndlessMode/TileSo")]
+    [CreateAssetMenu(fileName = "TileSo", menuName = "ScriptableObjects/GameMode/TileSo")]
     
     public class TileSo :ScriptableObject
     {

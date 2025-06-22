@@ -79,11 +79,8 @@ namespace GameMode.BaseMode
             if (baseModeModel.wordSets.Contains(word.ToLower()))
             {
                 Debug.Log("Valid word!");
-                baseModeModel.totalScore += baseModeModel.temporaryScore;
-                baseModeModel.temporaryScore = 0;
-                baseModeModel.wordCount++;
-                baseModeModel.averageScore = GetAverageScore();
-                baseModeView.ScoreUIController.SetTexts(baseModeModel.averageScore, baseModeModel.totalScore);
+                UpdateScoreAndUI();
+                OnWordValidated(baseModeModel.currentDraggedTiles);
             }
             else
             {
@@ -91,6 +88,37 @@ namespace GameMode.BaseMode
             }
             
             ClearTiles();
+        }
+
+        protected virtual void OnWordValidated(List<TileViewController> currentDraggedTiles)
+        {
+            
+        }
+        
+        protected TileViewController[,] GetTileGrid()
+        {
+            int rows = (int)baseModeModel.GridSize.y;
+            int cols = (int)baseModeModel.GridSize.x;
+
+            TileViewController[,] grid = new TileViewController[cols, rows];
+
+            foreach (var tile in baseModeModel.tileList)
+            {
+                Vector2Int pos = tile.tileModel.gridPosition;
+                grid[pos.x, pos.y] = tile;
+            }
+
+            return grid;
+        }
+
+
+        private void UpdateScoreAndUI()
+        {
+            baseModeModel.totalScore += baseModeModel.temporaryScore;
+            baseModeModel.temporaryScore = 0;
+            baseModeModel.wordCount++;
+            baseModeModel.averageScore = GetAverageScore();
+            baseModeView.ScoreUIController.SetTexts(baseModeModel.averageScore, baseModeModel.totalScore);
         }
 
         private int GetAverageScore()
@@ -235,7 +263,7 @@ namespace GameMode.BaseMode
             return (char)('A' + Random.Range(0, 26)); 
         }
         
-        private void ReturnToPool(TileViewController tile)
+        protected void ReturnToPool(TileViewController tile)
         {
             baseModeModel.tilePool.ReturnItem(tile);
         }

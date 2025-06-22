@@ -1,3 +1,4 @@
+using Events;
 using JetBrains.Annotations;
 using Script.GameMode;
 using UI;
@@ -10,6 +11,7 @@ namespace Main
     {
         public GameModeServices gameModeServices;
         public UIService uiService;
+        public EventService eventService;
         
         [SerializeField] private GameModeView gameModeView;
         
@@ -21,6 +23,7 @@ namespace Main
         
         private void InitializeServices()
         {
+            eventService = new EventService();
             gameModeServices = new GameModeServices(gameModeView, uiService.transform);
         }
     }
