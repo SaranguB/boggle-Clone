@@ -1,6 +1,5 @@
-using System;
+using GameMode.LevelMode;
 using Main;
-using Script.GameMode.LevelMode;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,7 +36,7 @@ namespace UI.GameModeUI
         private void OnEndlessModeClicked()
         {
             CanvasGroupExtension.Hide(gameModeUICanvas);
-            GameManager.Instance.gameModeServices.GameModeController.OnEndlessModeSelected();
+            GameManager.Instance.eventService.OnEndlessModeSelected.InvokeEvent();
         }
 
         private void OnLevelModeClicked()

@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using GameMode.EndlessMode;
 using GameMode.Tiles;
 using GameMode.BaseMode;
-using Tile;
 using UnityEngine;
-using Utilities;
 
-namespace Script.GameMode.EndlessMode
+
+namespace GameMode.EndlessMode
 {
     public class EndlessModeController : BaseModeController
     {
@@ -36,35 +34,62 @@ namespace Script.GameMode.EndlessMode
             base.GenerateTileBlocks();
             foreach (TileViewController tile in baseModeModel.tileList)
             {
-                tile.SetTileType(TileType.Normal);
+                tile.SetTileType();
             }
         }
 
         protected override void GenerateLetterGridWithWords()
         {
             base.GenerateLetterGridWithWords();
-            int rows = (int)baseModeModel.GridSize.y; 
-            int cols = (int)baseModeModel.GridSize.x; 
-            baseModeModel.letterGrid = new char[rows, cols];
-           
-            List<string> canidateWords = baseModeModel.wordSets
-                .Where(w => w.Length == 3)
-                .OrderBy(_ => Random.value)
-                .Take(3)
-                .ToList();
+            InitializeLetterGrid();
+            List<string> candidateWords = SelectCandidateWords(3, 3); 
 
-            foreach (string word in canidateWords)
+            PlaceWordsInGrid(candidateWords);
+            FillEmptyGridSlotsWithRandomLetters();
+        }
+        
+        private void InitializeLetterGrid()
+        {
+            int rows = (int)baseModeModel.GridSize.y;
+            int cols = (int)baseModeModel.GridSize.x;
+            baseModeModel.letterGrid = new char[rows, cols];
+        }
+
+        private List<string> SelectCandidateWords(int wordCount, int wordLength)
+        {
+            return baseModeModel.wordSets
+                .Where(w => w.Length == wordLength)
+                .OrderBy(_ => Random.value)
+                .Take(wordCount)
+                .Select(w => w.ToUpper())
+                .ToList();
+        }
+
+        private void PlaceWordsInGrid(List<string> words)
+        {
+            int rows = (int)baseModeModel.GridSize.y;
+            int cols = (int)baseModeModel.GridSize.x;
+
+            foreach (string word in words)
             {
-                bool success = TryPlacingWordInLetterGrid(word.ToUpper(), rows, cols);
+                bool success = TryPlacingWordInLetterGrid(word, rows, cols);
                 Debug.Log($"Trying to place word: {word} → {(success ? "Success" : "Failed")}");
             }
-            
+        }
+
+        private void FillEmptyGridSlotsWithRandomLetters()
+        {
+            int rows = (int)baseModeModel.GridSize.y;
+            int cols = (int)baseModeModel.GridSize.x;
+
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
                     if (baseModeModel.letterGrid[i, j] == '\0')
+                    {
                         baseModeModel.letterGrid[i, j] = GetRandomLetter();
+                    }
                 }
             }
         }
@@ -122,21 +147,10 @@ namespace Script.GameMode.EndlessMode
             }
             return false;
         }
-
-
+        
         public override void OnTileDragStart(TileViewController tileViewController)
         {
             base.OnTileDragStart(tileViewController);
-        }
-
-        public override void OnTileDraggedOver(TileViewController tile)
-        {
-            base.OnTileDraggedOver(tile);
-        }
-
-        public override void OnTileDragEnd(TileViewController tile)
-        {
-            base.OnTileDragEnd(tile);
         }
 
         protected override void OnWordValidated(List<TileViewController> usedTiles)
@@ -158,7 +172,6 @@ namespace Script.GameMode.EndlessMode
                 ReturnToPool(tile);
                 grid[pos.x, pos.y] = null;
             }
-            
             ShiftTilesDownward(cols, rows, grid);
         }
 
@@ -167,7 +180,6 @@ namespace Script.GameMode.EndlessMode
             for (int x = 0; x < cols; x++)
             {
                 int writeRow = rows - 1;
-
                 for (int y = rows - 1; y >= 0; y--)
                 {
                     if (grid[x, y] != null)
@@ -184,7 +196,6 @@ namespace Script.GameMode.EndlessMode
                         writeRow--;
                     }
                 }
-                
                 InitializeNewTile(writeRow, x, cols, grid);
             }
         }
@@ -200,7 +211,6 @@ namespace Script.GameMode.EndlessMode
                 newTile.tileModel.gridPosition = new Vector2Int(x, y);
                 newTile.transform.SetSiblingIndex(y * cols + x); 
                 baseModeModel.tileList.Add(newTile);
-
                 grid[x, y] = newTile;
             }
         }

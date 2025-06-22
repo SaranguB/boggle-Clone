@@ -1,6 +1,4 @@
-using System;
 using GameMode.BaseMode;
-using GameMode.Tiles;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,8 +14,7 @@ namespace GameMode.Tiles
         [SerializeField] private Image score2;
         [SerializeField] private Image score3;
         [SerializeField] private GameObject bonusTile;
-        [SerializeField] private GameObject blockTile
-            ;
+        [SerializeField] private GameObject blockTile;
         private BaseModeController modeController;
 
         public TileModel tileModel {get; set;}
@@ -90,7 +87,5 @@ namespace GameMode.Tiles
         {
             backgroundImage.color = tileModel.tileSo.invalidColor;
         }
-
-
     }
 }

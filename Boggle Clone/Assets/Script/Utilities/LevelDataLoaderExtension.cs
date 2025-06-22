@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using GameMode.LevelMode;
-using Script.GameMode.LevelMode;
 using UnityEngine;
 
 namespace Utilities

@@ -1,5 +1,5 @@
 using GameMode.BaseMode;
-using Script.GameMode.LevelMode;
+using GameMode.LevelMode;
 using UnityEngine;
 
 namespace Events
@@ -8,6 +8,7 @@ namespace Events
     {
         public EventController OnEndlessModeSelected;
         public EventController<LevelModeSo> OnLevelModeSelected;
+        
         public EventService()
         {
             OnEndlessModeSelected = new EventController();

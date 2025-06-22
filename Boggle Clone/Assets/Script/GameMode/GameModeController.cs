@@ -1,13 +1,11 @@
+using GameMode.EndlessMode;
 using GameMode.LevelMode;
 using Main;
-using Script.GameMode.EndlessMode;
-using Script.GameMode.LevelMode;
 using Tile;
-using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
 
-namespace Script.GameMode
+namespace GameMode
 {
     public class GameModeController
     {
@@ -18,7 +16,6 @@ namespace Script.GameMode
         {
             this.gameModeView = gameModeView;
             this.gameModeView.SetController(this);
-
             SubscribeToEvents();
         }
 
@@ -34,12 +31,11 @@ namespace Script.GameMode
             GameManager.Instance.eventService.OnLevelModeSelected.RemoveListener(OneLevelModeSelected);
         }
 
-        public void OnEndlessModeSelected()
+        private void OnEndlessModeSelected()
         {
             gameModeView.EnableGameGrid();
             EndlessModeController endlessModeController = new  EndlessModeController(gameModeView.endlessModeView);
         }
-        
         
         private void OneLevelModeSelected( LevelModeSo levelSo)
         {
@@ -49,7 +45,5 @@ namespace Script.GameMode
             LevelDataLoaderExtension.ConvertToScriptable(levelData, levelSo);
             LevelModeController levelModeController = new LevelModeController(gameModeView.levelModeView, levelSo);;
         }
-
-        
     }
 }

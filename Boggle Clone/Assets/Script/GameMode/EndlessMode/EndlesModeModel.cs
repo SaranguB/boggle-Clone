@@ -1,7 +1,4 @@
-using System.Collections.Generic;
 using GameMode.BaseMode;
-using GameMode.Tiles;
-using Tile;
 using UnityEngine;
 
 namespace GameMode.EndlessMode

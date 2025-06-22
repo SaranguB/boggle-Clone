@@ -9,6 +9,7 @@ namespace GameMode.BaseMode
     {
         [field: SerializeField] public BaseModeSo ModeData { get; private set; }
         [field:SerializeField] public ScoreUIController ScoreUIController {get; private set;} 
+        
         [Header("Tile")]
         [field: SerializeField]public TileSo TileSo {get; private set;}
         [field: SerializeField] public GridLayoutGroup ModeTileLayoutGround { get; private set; }

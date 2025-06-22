@@ -1,4 +1,3 @@
-using GameMode.Tiles;
 using UnityEngine;
 
 namespace GameMode.Tiles
@@ -8,9 +7,9 @@ namespace GameMode.Tiles
         public char letter;
         public Vector2Int gridPosition;
         public int letterScore;
-        public TileSo tileSo {get; private set ;}
         public TileType tileType;
-
+        public TileSo tileSo {get; private set ;}
+        
         public void SetTileSO(TileSo tileSo)
         {
             this.tileSo = tileSo;

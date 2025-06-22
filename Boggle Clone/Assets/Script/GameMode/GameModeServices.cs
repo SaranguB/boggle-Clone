@@ -1,8 +1,6 @@
-
-
 using UnityEngine;
 
-namespace Script.GameMode
+namespace GameMode
 {
     public class GameModeServices
     {
@@ -12,7 +10,5 @@ namespace Script.GameMode
         {
             GameModeController = new GameModeController(gameModeView,  canvasTransform);
         }
-
-
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameMode.Tiles;
-using Script.GameMode.EndlessMode;
 using Tile;
 using UnityEngine;
 using Utilities;
@@ -21,33 +20,35 @@ namespace GameMode.BaseMode
         protected void InitializeValues()
         {
             baseModeModel.tilePool = new TilePool(baseModeView.ModeData, baseModeView.TileGroupTransform);
-            
             baseModeView.ModeTileLayoutGround.constraintCount = 
                 (int)baseModeView.ModeData.gridSize.x;
-            
-            baseModeModel.totalGridSize = (int)baseModeModel.GridSize.x * 
-                                             (int)this.baseModeModel.GridSize.y;
         }
         
         protected virtual void GenerateTileBlocks()
         {
             baseModeModel.tileList.Clear();
-            
+
             int rows = (int)baseModeModel.GridSize.y;
             int cols = (int)baseModeModel.GridSize.x;
-            
+
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < cols; col++)
                 {
-                    char letter = baseModeModel.letterGrid[row, col];
-                    TileViewController tile = baseModeModel.tilePool.GetItem();
-                    tile.transform.SetParent(baseModeView.TileGroupTransform, false);
-                    tile.Initialize(this, row, col, letter, baseModeView.TileSo, 
-                        baseModeModel.letterScores[letter]);
-                    baseModeModel.tileList.Add(tile);
+                    CreateAndPlaceTile(row, col);
                 }
             }
+        }
+        
+        private void CreateAndPlaceTile(int row, int col)
+        {
+            char letter = baseModeModel.letterGrid[row, col];
+            int score = baseModeModel.letterScores[letter];
+
+            TileViewController tile = baseModeModel.tilePool.GetItem();
+            
+            tile.Initialize(this, row, col, letter, baseModeView.TileSo, score);
+            baseModeModel.tileList.Add(tile);
         }
         
         public virtual void OnTileDragStart(TileViewController tile)
@@ -88,13 +89,11 @@ namespace GameMode.BaseMode
             {
                 OnWordSelectedInvalid();
             }
-            
             ClearTiles();
         }
 
         protected virtual void OnWordValidated(List<TileViewController> currentDraggedTiles)
         {
-            
         }
         
         protected TileViewController[,] GetTileGrid()
@@ -109,11 +108,9 @@ namespace GameMode.BaseMode
                 Vector2Int pos = tile.tileModel.gridPosition;
                 grid[pos.x, pos.y] = tile;
             }
-
             return grid;
         }
-
-
+        
         private void UpdateScoreAndUI()
         {
             baseModeModel.totalScore += baseModeModel.temporaryScore;
@@ -143,7 +140,6 @@ namespace GameMode.BaseMode
             {
                 tile.SetSelected(false); 
             }
-            
             baseModeModel.currentDraggedTiles.Clear();
             baseModeModel.selectedTiles.Clear();
         }
@@ -170,8 +166,6 @@ namespace GameMode.BaseMode
         
         protected virtual void GenerateLetterGridWithWords()
         {
-          
-           
         }
         
         protected void PlaceWord(string word, int row, int col, int dx, int dy)
@@ -191,7 +185,5 @@ namespace GameMode.BaseMode
         {
             baseModeModel.tilePool.ReturnItem(tile);
         }
-
-      
     }
 }

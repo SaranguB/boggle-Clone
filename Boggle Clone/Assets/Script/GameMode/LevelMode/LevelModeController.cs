@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using GameMode.BaseMode;
-using GameMode.LevelMode;
 using GameMode.Tiles;
-using Script.GameMode.EndlessMode;
 using UnityEngine;
 
-namespace Script.GameMode.LevelMode
+namespace GameMode.LevelMode
 {
     public class LevelModeController : BaseModeController
     {
@@ -68,22 +66,6 @@ namespace Script.GameMode.LevelMode
                 levelModeModel.letterGrid[row, col] = tileData.letter.ToUpper()[0]; 
             }
         }
-
-        public override void OnTileDragStart(TileViewController tile)
-        {
-            base.OnTileDragStart(tile);
-        }
-
-        public override void OnTileDraggedOver(TileViewController tile)
-        {
-            base.OnTileDraggedOver(tile);
-        }
-        
-        public override void OnTileDragEnd(TileViewController tile)
-        {
-            base.OnTileDragEnd(tile);
-        }
-
         
         protected override void OnWordValidated(List<TileViewController> currentDraggedTiles)
         {

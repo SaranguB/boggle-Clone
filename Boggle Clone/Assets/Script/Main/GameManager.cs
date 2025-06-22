@@ -1,6 +1,5 @@
 using Events;
-using JetBrains.Annotations;
-using Script.GameMode;
+using GameMode;
 using UI;
 using UnityEngine;
 using Utilities;
@@ -12,7 +11,6 @@ namespace Main
         public GameModeServices gameModeServices;
         public UIService uiService;
         public EventService eventService;
-        
         [SerializeField] private GameModeView gameModeView;
         
         protected override void Awake()

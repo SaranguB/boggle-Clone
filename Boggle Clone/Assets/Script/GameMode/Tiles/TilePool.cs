@@ -1,5 +1,4 @@
 using GameMode.BaseMode;
-using GameMode.EndlessMode;
 using GameMode.Tiles;
 using UnityEngine;
 using Utilities;
@@ -31,6 +30,5 @@ namespace Tile
         {
             item.gameObject.SetActive(false);
         }
-        
     }
 }
