@@ -13,9 +13,9 @@ namespace GameMode.BaseMode
         protected BaseModeModel baseModeModel;
         protected BaseModeView baseModeView;
         
-        protected BaseModeController(EndlessModeView endlessModeView)
+        protected BaseModeController(BaseModeView baseModeView)
         {
-           baseModeView = endlessModeView;
+           this.baseModeView = baseModeView;
         }
 
         protected void InitializeValues()

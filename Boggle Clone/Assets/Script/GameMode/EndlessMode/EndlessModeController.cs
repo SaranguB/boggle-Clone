@@ -14,9 +14,9 @@ namespace Script.GameMode.EndlessMode
         private EndlessModeView endlessModeView;
         private EndlesModeModel endlessModeModel;
         
-        public EndlessModeController(EndlessModeView endlessModeView) : base(endlessModeView)
+        public EndlessModeController(EndlessModeView baseModeView) : base(baseModeView)
         {
-            SetViewAndController(endlessModeView);
+            SetViewAndController(baseModeView);
             InitializeValues();
             LoadWords();
             GenerateLetterGridWithWords();

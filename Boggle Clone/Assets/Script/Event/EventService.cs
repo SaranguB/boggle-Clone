@@ -6,11 +6,11 @@ namespace Events
     public class EventService
     {
         public EventController OnEndlessModeSelected;
-        public EventController<LevelModeSo> OnLevelModeSelected;
+        public EventController<int> OnLevelModeSelected;
         public EventService()
         {
             OnEndlessModeSelected = new EventController();
-            OnLevelModeSelected = new EventController<LevelModeSo>();
+            OnLevelModeSelected = new EventController<int>();
         }
 
     }

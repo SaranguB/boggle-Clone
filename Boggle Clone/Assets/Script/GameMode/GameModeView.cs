@@ -1,3 +1,4 @@
+using GameMode.LevelMode;
 using Script.GameMode.EndlessMode;
 using UnityEngine;
 using Utilities;
@@ -8,9 +9,8 @@ namespace Script.GameMode
     {
         [SerializeField] private CanvasGroup gameModeCanavs;
         
-        [field: SerializeField]
-        public EndlessModeView endlessModeView {get; private set;}
-        
+        [field: SerializeField] public EndlessModeView endlessModeView {get; private set;}
+        [field: SerializeField] public LevelModeView levelModeView {get; private set;}
         private GameModeController gameModeController;
         
 
