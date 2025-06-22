@@ -192,11 +192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311f3c7ee45f44f287edd9cdca391003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndlessModeButton: {fileID: 5684632687494056972}
+  gameModeUICanvas: {fileID: 7475161356870198532}
+  endlessModeButton: {fileID: 5684632687494056972}
   levelModeButton: {fileID: 4298572744172502729}
   levelData: {fileID: 11400000, guid: 16d95950c71fb88458cd504a757971fd, type: 2}
-  levelModeCanvas: {fileID: 0}
-  levelButtonGameObject: {fileID: 2315576520403613395, guid: 963abc9a14215824d9694c719d6c1303, type: 3}
+  levelModeCanvas: {fileID: 3253918257076131699}
+  levelButtonPrefab: {fileID: 2315576520403613395, guid: 963abc9a14215824d9694c719d6c1303, type: 3}
 --- !u!1 &1818589097576008316
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,9 +252,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818589097576008316}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &5973299655638505812
 MonoBehaviour:

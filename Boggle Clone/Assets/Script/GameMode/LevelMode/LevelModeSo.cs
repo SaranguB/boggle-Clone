@@ -10,5 +10,14 @@ namespace Script.GameMode.LevelMode
     {
         [Header("Level")] 
         public int numberOfLevels;
+        
+        public int selectedLevel;
+        public int bugCount;
+        public int wordCount;
+        public int timeSec;
+        public int totalScore;
+        public List<TileData> gridData;
     }
+    
+   
 }

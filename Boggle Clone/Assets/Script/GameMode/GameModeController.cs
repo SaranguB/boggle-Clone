@@ -41,13 +41,13 @@ namespace Script.GameMode
         }
         
         
-        private void OneLevelModeSelected( int selectedLevel)
+        private void OneLevelModeSelected( LevelModeSo levelSo)
         {
             gameModeView.EnableGameGrid();
             LevelDataLoaderExtension.LoadAllLevels();
-            LevelData levelData = LevelDataLoaderExtension.GetLevel(selectedLevel);
-            levelData.selectedLevel = selectedLevel;
-            LevelModeController levelModeController = new LevelModeController(gameModeView.levelModeView, levelData);;
+            LevelData levelData = LevelDataLoaderExtension.GetLevel(levelSo.selectedLevel);
+            LevelDataLoaderExtension.ConvertToScriptable(levelData, levelSo);
+            LevelModeController levelModeController = new LevelModeController(gameModeView.levelModeView, levelSo);;
         }
 
         

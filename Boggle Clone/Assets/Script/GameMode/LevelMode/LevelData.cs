@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameMode.Tiles;
 using UnityEngine;
 
 namespace GameMode.LevelMode
@@ -11,22 +12,7 @@ namespace GameMode.LevelMode
         public int wordCount;
         public int timeSec;
         public int totalScore;
-        public Vector2Int gridSize;
+        public Vector2 gridSize;
         public List<TileData> gridData;
     }
-
-    [System.Serializable]
-    public class TileData
-    {
-        public TileType tileType;
-        public string letter;
-    }
-
-    public enum TileType
-    {
-        Normal,
-        Bonus,
-        Blocked
-    }
-
 }

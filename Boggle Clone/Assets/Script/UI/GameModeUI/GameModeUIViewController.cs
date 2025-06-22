@@ -76,9 +76,8 @@ namespace UI.GameModeUI
 
         private void OnLevelSelected(int selectedLevel)
         {
-            Debug.Log($"Level {selectedLevel} selected.");
-            
-            GameManager.Instance.eventService.OnLevelModeSelected.InvokeEvent(selectedLevel);
+            levelData.selectedLevel = selectedLevel;
+            GameManager.Instance.eventService.OnLevelModeSelected.InvokeEvent(levelData);
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 using GameMode.BaseMode;
-using Script.GameMode.Tiles;
+using GameMode.Tiles;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,9 +15,11 @@ namespace GameMode.Tiles
         [SerializeField] private Image score1;
         [SerializeField] private Image score2;
         [SerializeField] private Image score3;
-        
+        [SerializeField] private GameObject bonusTile;
+        [SerializeField] private GameObject blockTile
+            ;
         private BaseModeController modeController;
-        
+
         public TileModel tileModel {get; set;}
         
         private void Awake()
@@ -35,6 +37,26 @@ namespace GameMode.Tiles
             tileModel.letter = letter;
             tileModel.gridPosition = new Vector2Int(column, row);
             letterText.text = letter.ToString();
+            UpdateVisualByModifier();
+        }
+        
+        public void SetTileType(TileType tileType = TileType.Normal)
+        {
+            tileModel.tileType = tileType;
+            UpdateVisualByModifier();
+        }
+        
+        private void UpdateVisualByModifier()
+        {
+            switch (tileModel.tileType)
+            {
+                case TileType.Bonus:
+                    bonusTile.SetActive(true);
+                    break;
+                case TileType.Blocked:
+                    blockTile.SetActive(true);
+                    break;
+            }
         }
 
         private void SetScore()
@@ -68,6 +90,7 @@ namespace GameMode.Tiles
         {
             backgroundImage.color = tileModel.tileSo.invalidColor;
         }
-        
+
+
     }
 }

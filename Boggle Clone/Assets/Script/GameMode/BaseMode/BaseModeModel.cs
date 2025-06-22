@@ -7,7 +7,7 @@ namespace GameMode.BaseMode
 {
     public class BaseModeModel
     {
-        public int TotalGridSize;
+        public int totalGridSize;
         public List<TileViewController> tileList = new();
         public TilePool tilePool;
         public HashSet<string> wordSets = new();

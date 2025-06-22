@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GameMode.LevelMode;
+using Script.GameMode.LevelMode;
 using UnityEngine;
 
 namespace Utilities
@@ -31,6 +32,17 @@ namespace Utilities
 
             return cachedLevels[index];
         }
+
+        public static void ConvertToScriptable(LevelData levelData, LevelModeSo levelSo)
+        {
+            levelSo.bugCount = levelData.bugCount;
+            levelSo.wordCount = levelData.wordCount;
+            levelSo.timeSec = levelData.timeSec;
+            levelSo.totalScore = levelData.totalScore;
+            levelSo.gridSize = levelData.gridSize;
+            levelSo.gridData = levelData.gridData;
+        }
     }
+
 
 }

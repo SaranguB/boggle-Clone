@@ -1,7 +1,7 @@
 using GameMode.Tiles;
 using UnityEngine;
 
-namespace Script.GameMode.Tiles
+namespace GameMode.Tiles
 {
     public class TileModel
     {
@@ -9,6 +9,7 @@ namespace Script.GameMode.Tiles
         public Vector2Int gridPosition;
         public int letterScore;
         public TileSo tileSo {get; private set ;}
+        public TileType tileType;
 
         public void SetTileSO(TileSo tileSo)
         {

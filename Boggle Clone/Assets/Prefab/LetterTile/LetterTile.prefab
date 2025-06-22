@@ -719,6 +719,8 @@ MonoBehaviour:
   score1: {fileID: 1098425389137527345}
   score2: {fileID: 6470689576986634842}
   score3: {fileID: 9162637207802812848}
+  bonusTile: {fileID: 45450720790491816}
+  blockTile: {fileID: 990310521115680242}
 --- !u!114 &7990232248801576090
 MonoBehaviour:
   m_ObjectHideFlags: 0
